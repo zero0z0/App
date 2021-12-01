@@ -39,12 +39,9 @@ function App() {
 			});
 			console.log(arr);
 			const data = arr.map((value)=>{
-					<p> {value.title} </p>
-			});
-			console.log(data);
-		return (
-			<div> {data} </div>
-		);
+					<p> {value.title} </p> 
+					});
+		return ( <div> {data} </div> );
   }
 
   const FindData = () => {
