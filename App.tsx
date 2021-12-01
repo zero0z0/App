@@ -1,8 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, {FC,ChangeEvent,useState} from 'react';
-import TodoForm from './TodoForm';   
-import TodoFormDeleted from './TodoFormDeleted';   
+ 
 
 
 function App() {
@@ -39,22 +38,30 @@ function App() {
 				});
 			});
 			console.log(arr);
-	  return (
-		
-		<ul>
-			{arr.map((value,index)=>(
-				<li key={index}> {value} </li>))}
-					
-		</ul>
-	  );
+			const data = arr.map((value)=>{
+					<p> {value.title} </p>
+			});
+			console.log(data);
+		return (
+			<div> {data} </div>
+		);
   }
-	
 
+  const FindData = () => {
+	  const found = arr.find(element => element.title === inputList);
+	  console.log(found);
+	  /*arr.map((value)=>{
+		  console.log(value.title); 
+	  })*/  
+	  setInputList("");
+  }
+  
+	
   return (
 		
     <div className = "main_div">		
 			<input type="text" placeholder="search"  onChange= {handlechange}  value = {inputList}/>
-			<button  >tìm</button>
+			<button onClick={FindData} >tìm</button>	
 			<List />
 	</div>
   );
